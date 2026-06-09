@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora Ninja</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="hud">
+  <span>⭐ <b id="score">0</b></span>
+  <span>❤️ <b id="lives">3</b></span>
+  <span>Lv <b id="level">1</b></span>
+  <button id="shopBtn">🛒</button>
+  <button id="modeBtn">Modo</button>
+</div>
+
+<div id="game"><div id="sky"></div></div>
+
+<div class="input">
+  <input id="answer" type="number" inputmode="numeric" placeholder="?">
+  <button id="hit">✓</button>
+</div>
+
+<div class="keys">
+  <button>1</button><button>2</button><button>3</button>
+  <button>4</button><button>5</button><button>6</button>
+  <button>7</button><button>8</button><button>9</button>
+  <button id="clr">⌫</button><button>0</button><button id="ent">OK</button>
+</div>
+
+<div id="start" class="modal">
+  <div class="box">
+    <h1>🥷 Calculadora Ninja</h1>
+    <p>Resolva as contas que caem!</p>
+    <p>Errou = perde vida</p>
+    <button id="normal">Modo Normal</button>
+    <button id="tabuada">Modo Tabuada</button>
+    <div id="tabs" class="hidden">
+      <button data-t="2">2</button><button data-t="3">3</button><button data-t="4">4</button>
+      <button data-t="5">5</button><button data-t="6">6</button><button data-t="7">7</button>
+      <button data-t="8">8</button><button data-t="9">9</button><button data-t="0">Todas</button>
+    </div>
+  </div>
+</div>
+
+<div id="shop" class="modal hidden">
+  <div class="box">
+    <h2>Loja</h2>
+    <p>Pontos: <b id="shopPts">0</b></p>
+    <button data-b="vida">❤️ Vida (100)</button>
+    <button data-b="slow">🐢 Lento 5s (50)</button>
+    <button data-b="dica">💡 Dica (30)</button>
+    <button id="close">Fechar</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
