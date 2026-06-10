@@ -66,3 +66,14 @@ document.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{
   else return;
   scoreEl.textContent=score; document.getElementById('shopPts').textContent=score;
 });
+// MODO SÓ TABUADA DO 2 - TRAVADO
+let score=0,lives=10,problems=[],run=true,timer;
+const sky=document.getElementById('sky'),scoreEl=document.getElementById('score'),livesEl=document.getElementById('lives'),ans=document.getElementById('answer');
+function rnd(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+function newProb(){const b=rnd(1,10);return{t:`2 × ${b}`,ans:2*b,x:rnd(10,75),y:-60,s:0.35}}
+function spawn(){const p=newProb();const d=document.createElement('div');d.className='problem';d.textContent=p.t;d.style.left=p.x+'%';sky.appendChild(d);p.el=d;problems.push(p)}
+function loop(){if(!run)return;const h=document.getElementById('game').clientHeight;problems.forEach((p,i)=>{p.y+=p.s;p.el.style.top=p.y+'px';if(p.y>h-40){lives--;livesEl.textContent=lives;p.el.remove();problems.splice(i,1);if(lives<=0)end()}});requestAnimationFrame(loop)}
+function check(){const v=parseInt(ans.value);const i=problems.findIndex(p=>p.ans===v);if(i>-1){score+=10;scoreEl.textContent=score;problems[i].el.remove();problems.splice(i,1);ans.value=''}else{lives--;livesEl.textContent=lives;ans.value='';if(lives<=0)end()}}
+function end(){run=false;clearInterval(timer);alert('Treino finalizado! Pontos: '+score)}
+function start(){setInterval(spawn,3000);loop()}
+document.getElementById('hit').onclick=check;document.getElementById('ent').onclick=check;ans.addEventListener('keydown',e=>e.key==='Enter'&&check());start()
