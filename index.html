@@ -3,44 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Calculadora Ninja</title>
+<title>Calculadora Ninja - Kids</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="hud">
-  <span>⭐ <b id="score">0</b></span>
-  <span>❤️ <b id="lives">3</b></span>
-  <span>Lv <b id="level">1</b></span>
-  <button id="shopBtn">🛒</button>
-  <button id="modeBtn">Modo</button>
-</div>
+<div class="wrap">
+  <div class="hud">
+    <span>⭐ <b id="score">0</b></span>
+    <span>❤️ <b id="lives">5</b></span>
+    <span>Fase <b id="fase">1</b></span>
+    <button id="shopBtn">🛒 Loja</button>
+    <button id="modeBtn">Modo</button>
+  </div>
 
-<div id="game"><div id="sky"></div></div>
+  <div id="game"><div id="sky"></div></div>
 
-<div class="input">
-  <input id="answer" type="number" inputmode="numeric" placeholder="?">
-  <button id="hit">✓</button>
-</div>
+  <div class="input">
+    <input id="answer" type="number" inputmode="numeric" placeholder="?" autocomplete="off">
+    <button id="hit">✓</button>
+  </div>
 
-<div class="keys">
-  <button>1</button><button>2</button><button>3</button>
-  <button>4</button><button>5</button><button>6</button>
-  <button>7</button><button>8</button><button>9</button>
-  <button id="clr">⌫</button><button>0</button><button id="ent">OK</button>
+  <div class="keys">
+    <button>1</button><button>2</button><button>3</button>
+    <button>4</button><button>5</button><button>6</button>
+    <button>7</button><button>8</button><button>9</button>
+    <button id="clr">⌫</button><button>0</button><button id="ent">OK</button>
+  </div>
 </div>
 
 <div id="start" class="modal">
   <div class="box">
-    <h1>🥷 Calculadora Ninja</h1>
-    <p>Resolva as contas que caem!</p>
-    <p>Errou = perde vida</p>
+    <h1>🥷 Calculadora Ninja Kids</h1>
+    <p>Fases que ficam mais rápidas só quando você acerta!</p>
     <button id="normal">Modo Normal</button>
-    <button id="tabuada">Modo Tabuada</button>
-    <div id="tabs" class="hidden">
-      <button data-t="2">2</button><button data-t="3">3</button><button data-t="4">4</button>
-      <button data-t="5">5</button><button data-t="6">6</button><button data-t="7">7</button>
-      <button data-t="8">8</button><button data-t="9">9</button><button data-t="0">Todas</button>
+    <button id="tabuada">Modo Tabuada (Fácil)</button>
+    <div id="tabs">
+      <button data-t="1">Tabuada do 1</button>
+      <button data-t="2">Tabuada do 2</button>
+      <button data-t="3">Tabuada do 3</button>
+      <button data-t="4">Tabuada do 4</button>
+      <button data-t="5">Tabuada do 5</button>
+      <button data-t="0">Todas (1-5)</button>
     </div>
+    <small>Funciona no celular e no computador (teclado)</small>
   </div>
 </div>
 
@@ -48,10 +53,18 @@
   <div class="box">
     <h2>Loja</h2>
     <p>Pontos: <b id="shopPts">0</b></p>
-    <button data-b="vida">❤️ Vida (100)</button>
-    <button data-b="slow">🐢 Lento 5s (50)</button>
-    <button data-b="dica">💡 Dica (30)</button>
+    <button data-b="vida">❤️ +1 Vida (80)</button>
+    <button data-b="slow">🐢 Devagar 8s (40)</button>
+    <button data-b="dica">💡 Mostrar resposta (20)</button>
     <button id="close">Fechar</button>
+  </div>
+</div>
+
+<div id="over" class="modal hidden">
+  <div class="box">
+    <h2>Ops!</h2>
+    <p id="overText"></p>
+    <button id="retry">Jogar de novo</button>
   </div>
 </div>
 
